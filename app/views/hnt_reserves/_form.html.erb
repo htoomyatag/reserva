@@ -1,0 +1,41 @@
+<%= form_for(@hnt_reserf) do |f| %>
+  <% if @hnt_reserf.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@hnt_reserf.errors.count, "error") %> prohibited this hnt_reserf from being saved:</h2>
+
+      <ul>
+      <% @hnt_reserf.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :restaurant_name %><br>
+    <%= f.text_field :restaurant_name %>
+  </div>
+  <div class="field">
+    <%= f.label :customer_name %><br>
+    <%= f.text_field :customer_name %>
+  </div>
+  <div class="field">
+    <%= f.label :reserve_date %><br>
+    <%= f.text_field :reserve_date %>
+  </div>
+  <div class="field">
+    <%= f.label :reserve_time %><br>
+    <%= f.text_field :reserve_time %>
+  </div>
+  <div class="field">
+    <%= f.label :number_of_ppl %><br>
+    <%= f.text_field :number_of_ppl %>
+  </div>
+  <div class="field">
+    <%= f.label :phone %><br>
+    <%= f.text_field :phone %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

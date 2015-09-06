@@ -1,0 +1,56 @@
+
+    <div class="col-md-4">
+    	<div class="panel panel-default">
+  			<div class="panel-body">
+				<span id="reserve_phone">Offline Reservation by Phone </span>
+				<%= render 'form' %>
+		 	</div><br/>
+		</div>
+	</div>
+    <div class="col-md-8">
+    	<div class="panel panel-default" style="height:472px;">
+  			<div class="panel-body">
+			   	<table class="table table-bordered">
+			        <thead>
+			          <tr>
+					      <th class="th_order">
+					      Name<br/>
+					      အမည္</th>
+					      <th class="th_order">
+					      Contact<br/>	
+					      ဆက္သြယ္ရန္</th>
+					      <th class="th_order">
+					      Date/Time<br/>	
+					      ေန႕ရက္/အခ်ိန္</th>
+					      <th class="th_order">
+					      Number Of Passenger<br/>
+					      ဧည့္သည္အေရအတြက္</th>
+					      <th class="th_order">
+					      Special Request<br/>
+					      ေတာင္းခံမႈမ်ား</th>
+					      <th class="th_order">
+					      Email<br/>
+					      အီးေမး</th>
+			          </tr>
+			        </thead>
+			        <tbody>
+			     	<% @orders.each do |order| %>
+		      			 <tr>
+					        <td><%= order.name %></td>
+					       	<td><%= order.contact_number %></td>
+					        <td><%= order.res_date %> / <%= order.res_time %></td>
+					        <td><%= order.number_of_guest %></td>
+					        <td><%= order.special_request %></td>
+					        <td><%= order.email %></td>
+		      			</tr>
+		      		<% end %>
+			        </tbody>
+			    </table>			<%= will_paginate @orders %>
+			</div>
+
+		</div>
+
+
+
+
+    </div>

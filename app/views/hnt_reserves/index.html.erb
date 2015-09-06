@@ -1,0 +1,37 @@
+<div class="container">
+
+<p style="font-size:20px;">Reservation listing</p><br/>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Restaurant name</th>
+      <th>Customer name</th>
+      <th>Reserve date</th>
+      <th>Reserve time</th>
+      <th>Number of ppl</th>
+      <th>Phone</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @hnt_reserves.each do |hnt_reserf| %>
+      <tr>
+        <td><%= hnt_reserf.restaurant_name %></td>
+        <td><%= hnt_reserf.customer_name %></td>
+        <td><%= hnt_reserf.reserve_date %></td>
+        <td><%= hnt_reserf.reserve_time %></td>
+        <td><%= hnt_reserf.number_of_ppl %></td>
+        <td><%= hnt_reserf.phone %></td>
+        <td><%= link_to 'Show', hnt_reserf %></td>
+        <td><%= link_to 'Edit', edit_hnt_reserf_path(hnt_reserf) %></td>
+        <td><%= link_to 'Destroy', hnt_reserf, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+</div>

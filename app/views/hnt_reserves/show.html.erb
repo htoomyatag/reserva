@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Restaurant name:</strong>
+  <%= @hnt_reserf.restaurant_name %>
+</p>
+
+<p>
+  <strong>Customer name:</strong>
+  <%= @hnt_reserf.customer_name %>
+</p>
+
+<p>
+  <strong>Reserve date:</strong>
+  <%= @hnt_reserf.reserve_date %>
+</p>
+
+<p>
+  <strong>Reserve time:</strong>
+  <%= @hnt_reserf.reserve_time %>
+</p>
+
+<p>
+  <strong>Number of ppl:</strong>
+  <%= @hnt_reserf.number_of_ppl %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @hnt_reserf.phone %>
+</p>
+
+<%= link_to 'Edit', edit_hnt_reserf_path(@hnt_reserf) %> |
+<%= link_to 'Back', hnt_reserves_path %>

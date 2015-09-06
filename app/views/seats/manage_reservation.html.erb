@@ -1,0 +1,318 @@
+<div class="col-md-12">
+    <div class="panel panel-default">
+      <div class="panel-body">
+         <%= image_tag "pointer.jpg" %>
+          <%= image_tag "ref_available.png" %>
+          <%= image_tag "ref_reserved.png" %>
+          <%= image_tag "ref_occupied.png" %>
+    
+          
+          
+      </div>
+    </div>
+</div>
+ 
+
+  <div class="col-md-8">
+    <div class="panel panel-default">
+        <div class="panel-heading" id="online_res">သင့္ဆိုင္အတြက္ table  reservation စီမံခန္႕ခြဲမႈအားဤ ေနရာတြင္ ျပဳလုပ္ႏိုင္သည္။</div>
+        <div class="panel-body" id="res_body">
+            <% @mng_seats.each do |mng_seat| %>
+                    <% if mng_seat.seat_type == "1"  %>
+                        <span class="ta"> 
+
+
+
+                        <% if mng_seat.status == "yes_reserve"  %>
+
+                            <%= link_to( image_tag("1-Table-Purple.png"), sit_path(mng_seat), :method => :put, :remote => true, :class=>"all_seattype", :id => "purple"+mng_seat.id.to_s) %>
+
+                           <%= link_to( image_tag("1-Table-Red.png"), no_reserve_path(mng_seat), :method => :put, :remote => true, :class=>"all_seattype",:id => "red"+mng_seat.id.to_s, :style => "display:none;") %>
+
+                           <%= link_to( image_tag("1-Table.png"), yes_reserve_path(mng_seat), :method => :put, :remote => true, :class=>"all_seattype", :id => "green"+mng_seat.id.to_s, :style => "display:none;" ) %>
+
+
+                        <% elsif mng_seat.status == "sit"  %>
+
+                           <%= link_to( image_tag("1-Table-Red.png"), no_reserve_path(mng_seat), :method => :put, :remote => true, :class=>"all_seattype",:id => "red"+mng_seat.id.to_s) %>
+
+                           <%= link_to( image_tag("1-Table-Purple.png"), sit_path(mng_seat), :method => :put, :remote => true, :class=>"all_seattype", :id => "purple"+mng_seat.id.to_s, :style => "display:none;") %>
+
+                           <%= link_to( image_tag("1-Table.png"), yes_reserve_path(mng_seat), :method => :put, :remote => true, :class=>"all_seattype", :id => "green"+mng_seat.id.to_s, :style => "display:none;" ) %>
+
+                        <% elsif mng_seat.status == "no_reserve" or ""  %>
+                        
+                            <%= link_to( image_tag("1-Table.png"), yes_reserve_path(mng_seat), :method => :put, :remote => true, :class=>"all_seattype", :id => "green"+mng_seat.id.to_s ) %>
+
+
+                           <%= link_to( image_tag("1-Table-Red.png"), no_reserve_path(mng_seat), :method => :put, :remote => true, :class=>"all_seattype",:id => "red"+mng_seat.id.to_s, :style => "display:none;") %>
+
+                           <%= link_to( image_tag("1-Table-Purple.png"), sit_path(mng_seat), :method => :put, :remote => true, :class=>"all_seattype", :id => "purple"+mng_seat.id.to_s, :style => "display:none;") %>
+
+                        <% else  %>
+                        <% end  %>
+                            
+
+                            <script>
+
+                                  $("#purple<%= mng_seat.id.to_s %>").click(function ( event ) {
+                                  $(this).hide();
+                                  $("#red<%= mng_seat.id.to_s %>").show();
+                                  });
+
+                                  $("#red<%= mng_seat.id.to_s %>").click(function ( event ) {
+                                  $(this).hide();
+                                  $("#green<%= mng_seat.id.to_s %>").show();
+                                  });
+
+                                  $("#green<%= mng_seat.id.to_s %>").click(function ( event ) {
+                                  $(this).hide();
+                                  $("#purple<%= mng_seat.id.to_s %>").show();
+                                  });
+
+                                
+                            </script>
+
+                        </span>
+                    
+                    <% elsif mng_seat.seat_type == "2" %>
+                        <span class="ta">
+                                
+                        <% if mng_seat.status == "yes_reserve"  %>
+
+                            <%= link_to( image_tag("2-Table-Purple.png"), sit_path(mng_seat), :method => :put, :remote => true, :class=>"all_seattype", :id => "purple"+mng_seat.id.to_s) %>
+
+                           <%= link_to( image_tag("2-Table-Red.png"), no_reserve_path(mng_seat), :method => :put, :remote => true, :class=>"all_seattype",:id => "red"+mng_seat.id.to_s, :style => "display:none;") %>
+
+                           <%= link_to( image_tag("2-Table.png"), yes_reserve_path(mng_seat), :method => :put, :remote => true, :class=>"all_seattype", :id => "green"+mng_seat.id.to_s, :style => "display:none;" ) %>
+
+
+                        <% elsif mng_seat.status == "sit"  %>
+
+                           <%= link_to( image_tag("2-Table-Red.png"), no_reserve_path(mng_seat), :method => :put, :remote => true, :class=>"all_seattype",:id => "red"+mng_seat.id.to_s) %>
+
+                           <%= link_to( image_tag("2-Table-Purple.png"), sit_path(mng_seat), :method => :put, :remote => true, :class=>"all_seattype", :id => "purple"+mng_seat.id.to_s, :style => "display:none;") %>
+
+                           <%= link_to( image_tag("2-Table.png"), yes_reserve_path(mng_seat), :method => :put, :remote => true, :class=>"all_seattype", :id => "green"+mng_seat.id.to_s, :style => "display:none;" ) %>
+
+                        <% elsif mng_seat.status == "no_reserve" or ""  %>
+                        
+                          <%= link_to( image_tag("2-Table.png"), yes_reserve_path(mng_seat), :method => :put, :remote => true, :class=>"all_seattype", :id => "green"+mng_seat.id.to_s ) %>
+
+
+                           <%= link_to( image_tag("2-Table-Red.png"), no_reserve_path(mng_seat), :method => :put, :remote => true, :class=>"all_seattype",:id => "red"+mng_seat.id.to_s, :style => "display:none;") %>
+
+                           <%= link_to( image_tag("2-Table-Purple.png"), sit_path(mng_seat), :method => :put, :remote => true, :class=>"all_seattype", :id => "purple"+mng_seat.id.to_s, :style => "display:none;") %>
+
+                        <% else  %>
+                        <% end  %>
+                            
+                            <script>
+
+                                  $("#purple<%= mng_seat.id.to_s %>").click(function ( event ) {
+                                  $(this).hide();
+                                  $("#red<%= mng_seat.id.to_s %>").show();
+                                  });
+
+                                  $("#red<%= mng_seat.id.to_s %>").click(function ( event ) {
+                                  $(this).hide();
+                                  $("#green<%= mng_seat.id.to_s %>").show();
+                                  });
+
+                                  $("#green<%= mng_seat.id.to_s %>").click(function ( event ) {
+                                  $(this).hide();
+                                  $("#purple<%= mng_seat.id.to_s %>").show();
+                                  });
+
+                                
+                            </script>
+                        </span>
+                        
+                    <% elsif mng_seat.seat_type == "4"  %>
+                        <span class="ta">
+                        <% if mng_seat.status == "yes_reserve"  %>
+
+                            <%= link_to( image_tag("4-Table-Gray.png"), sit_path(mng_seat), :method => :put, :remote => true, :class=>"all_seattype", :id => "purple"+mng_seat.id.to_s) %>
+
+                           <%= link_to( image_tag("4-Table-Red.png"), no_reserve_path(mng_seat), :method => :put, :remote => true, :class=>"all_seattype",:id => "red"+mng_seat.id.to_s, :style => "display:none;") %>
+
+                           <%= link_to( image_tag("4-Table.png"), yes_reserve_path(mng_seat), :method => :put, :remote => true, :class=>"all_seattype", :id => "green"+mng_seat.id.to_s, :style => "display:none;" ) %>
+
+
+                        <% elsif mng_seat.status == "sit"  %>
+
+                           <%= link_to( image_tag("4-Table-Red.png"), no_reserve_path(mng_seat), :method => :put, :remote => true, :class=>"all_seattype",:id => "red"+mng_seat.id.to_s) %>
+
+                           <%= link_to( image_tag("4-Table-Gray.png"), sit_path(mng_seat), :method => :put, :remote => true, :class=>"all_seattype", :id => "purple"+mng_seat.id.to_s, :style => "display:none;") %>
+
+                           <%= link_to( image_tag("4-Table.png"), yes_reserve_path(mng_seat), :method => :put, :remote => true, :class=>"all_seattype", :id => "green"+mng_seat.id.to_s, :style => "display:none;" ) %>
+
+                        <% elsif mng_seat.status == "no_reserve" or ""  %>
+                        
+                          <%= link_to( image_tag("4-Table.png"), yes_reserve_path(mng_seat), :method => :put, :remote => true, :class=>"all_seattype", :id => "green"+mng_seat.id.to_s ) %>
+
+
+                           <%= link_to( image_tag("4-Table-Red.png"), no_reserve_path(mng_seat), :method => :put, :remote => true, :class=>"all_seattype",:id => "red"+mng_seat.id.to_s, :style => "display:none;") %>
+
+                           <%= link_to( image_tag("4-Table-Gray.png"), sit_path(mng_seat), :method => :put, :remote => true, :class=>"all_seattype", :id => "purple"+mng_seat.id.to_s, :style => "display:none;") %>
+
+                        <% else  %>
+                        <% end  %>
+                            
+                            <script>
+
+                                  $("#purple<%= mng_seat.id.to_s %>").click(function ( event ) {
+                                  $(this).hide();
+                                  $("#red<%= mng_seat.id.to_s %>").show();
+                                  });
+
+                                  $("#red<%= mng_seat.id.to_s %>").click(function ( event ) {
+                                  $(this).hide();
+                                  $("#green<%= mng_seat.id.to_s %>").show();
+                                  });
+
+                                  $("#green<%= mng_seat.id.to_s %>").click(function ( event ) {
+                                  $(this).hide();
+                                  $("#purple<%= mng_seat.id.to_s %>").show();
+                                  });
+
+                                
+                            </script>
+                        
+
+
+                        </span>
+                    <% elsif mng_seat.seat_type == "8"  %>
+                        <span class="ta">
+                        
+
+                        <% if mng_seat.status == "yes_reserve"  %>
+
+                            <%= link_to( image_tag("8-Table-Gray.png"), sit_path(mng_seat), :method => :put, :remote => true, :class=>"all_seattype", :id => "purple"+mng_seat.id.to_s) %>
+
+                           <%= link_to( image_tag("8-Table-Red.png"), no_reserve_path(mng_seat), :method => :put, :remote => true, :class=>"all_seattype",:id => "red"+mng_seat.id.to_s, :style => "display:none;") %>
+
+                           <%= link_to( image_tag("8-Table.png"), yes_reserve_path(mng_seat), :method => :put, :remote => true, :class=>"all_seattype", :id => "green"+mng_seat.id.to_s, :style => "display:none;" ) %>
+
+
+                        <% elsif mng_seat.status == "sit"  %>
+
+                           <%= link_to( image_tag("8-Table-Red.png"), no_reserve_path(mng_seat), :method => :put, :remote => true, :class=>"all_seattype",:id => "red"+mng_seat.id.to_s) %>
+
+                           <%= link_to( image_tag("8-Table-Gray.png"), sit_path(mng_seat), :method => :put, :remote => true, :class=>"all_seattype", :id => "purple"+mng_seat.id.to_s, :style => "display:none;") %>
+
+                           <%= link_to( image_tag("8-Table.png"), yes_reserve_path(mng_seat), :method => :put, :remote => true, :class=>"all_seattype", :id => "green"+mng_seat.id.to_s, :style => "display:none;" ) %>
+
+                        <% elsif mng_seat.status == "no_reserve" or ""  %>
+                        
+                          <%= link_to( image_tag("8-Table.png"), yes_reserve_path(mng_seat), :method => :put, :remote => true, :class=>"all_seattype", :id => "green"+mng_seat.id.to_s ) %>
+
+
+                           <%= link_to( image_tag("8-Table-Red.png"), no_reserve_path(mng_seat), :method => :put, :remote => true, :class=>"all_seattype",:id => "red"+mng_seat.id.to_s, :style => "display:none;") %>
+
+                           <%= link_to( image_tag("8-Table-Gray.png"), sit_path(mng_seat), :method => :put, :remote => true, :class=>"all_seattype", :id => "purple"+mng_seat.id.to_s, :style => "display:none;") %>
+
+                        <% else  %>
+                        <% end  %>
+                            
+                            <script>
+
+                                  $("#purple<%= mng_seat.id.to_s %>").click(function ( event ) {
+                                  $(this).hide();
+                                  $("#red<%= mng_seat.id.to_s %>").show();
+                                  });
+
+                                  $("#red<%= mng_seat.id.to_s %>").click(function ( event ) {
+                                  $(this).hide();
+                                  $("#green<%= mng_seat.id.to_s %>").show();
+                                  });
+
+                                  $("#green<%= mng_seat.id.to_s %>").click(function ( event ) {
+                                  $(this).hide();
+                                  $("#purple<%= mng_seat.id.to_s %>").show();
+                                  });
+
+                                
+                            </script>
+
+                        </span>
+                    <% else  %>
+                    <% end  %>
+            <% end %>
+        </div>
+    </div>
+
+
+  </div>
+  <div class="col-md-4">
+        <div class="panel panel-default">
+        <div class="panel-heading" id="online_res">Online Reservation</div>
+        <div class="panel-body">
+
+       <% @orders.each do |order| %>
+          <div class="list-group">
+
+            <a href="#" class="list-group-item">
+              <h4 class="list-group-item-heading">
+                <%= order.name rescue "-"%>
+                <span style="float:right;" class="my_drag"id="drag_me<%= order.id %>">
+                  <%= order.name rescue "-"%>
+                  <%= image_tag "reserva_flag.jpg" %>
+                </span>
+              </h4>
+              <p class="list-group-item-text"> 
+                <b>ဧည့္သည္အေရအတြက္</b>
+                <%= order.number_of_guest rescue "-" %><br/> 
+                <b>ေန႕ရက္ႏွင့္အခ်ိန္</b>
+                <%= order.res_date rescue "-" %> |
+                <%= order.res_time rescue "-" %></p>
+            </a>
+
+          </div>
+
+
+          <script type="text/javascript">
+
+                $(function(){
+                  $('#drag_me<%= order.id %>').draggable();  
+                  
+                });
+
+          </script>
+
+          <% end %>
+        </div>
+             
+
+        </div>
+        <div class="panel panel-default">
+           <div class="panel-heading">Help</div>
+            <div class="panel-body">
+             <span style="position:relative;left:70px;"><%= image_tag "help_reserve.gif" %></span>
+            </div>
+        </div>
+
+             
+
+
+  </div>
+
+ <script type="text/javascript">
+
+
+//   $( init );
+ 
+//             function init() {
+//               $('.my_drag').draggable();
+//               $('#aok').droppable( {
+//                 drop: handleDropEvent
+//               } );
+//             }
+ 
+//             function handleDropEvent( event, ui ) {
+//               var draggable = ui.draggable;
+//               alert( 'The square with ID "' + draggable.attr('id') + '" was dropped onto me!' );
+//             }
+
+
+//     </script>

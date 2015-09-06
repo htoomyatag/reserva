@@ -1,0 +1,47 @@
+
+
+<div class="col-md-12" id="sign_up_page">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+      <br/>
+      <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :class => "form-signin", :id =>"register" }) do  |f| %>
+        <div id="sign_up_reserva">
+          <h2 class="form-signin-heading" style="text-align:center;"><%= image_tag "logo2.png" %></h2>
+        </div>
+          <%= devise_error_messages! %> 
+
+          <%= f.text_field :user_name, autofocus: true, :class =>"form-control", :placeholder =>"အမည္", :id =>"text_box_signup" %>
+          <%= f.password_field :password, autofocus: true, :class =>"form-control", :placeholder =>"စကားဝွက္", :id =>"text_box_signup" %>
+          <%= f.text_field :shop_name, autofocus: true, :class =>"form-control", :placeholder =>"ဆိုင္နာမည္", :id =>"text_box_signup" %>
+          <%= f.email_field :email, autofocus: true, :class =>"form-control", :placeholder =>"အီးေမး", :id =>"text_box_signup" %>
+          <%= f.text_area :shop_address, autofocus: true, :class =>"form-control", :placeholder =>"လိပ္စာ", :id =>"text_box_signup" %>
+
+          <br/>
+          
+          <%= f.submit "ဝင္ေရာက္မည္", :class => "btn btn-lg btn-primary btn-block", :style =>"background:#025459;", :role => "button" %>
+          <a href="/users/sign_in" id="login_btn" style="background:#025459;" class="btn btn-lg btn-primary btn-block"  role="button">Account ရွိျပီးပါက?</a>
+      
+      <% end %>
+     
+          <p style="text-align:center;color:white;">www.hnttechs.com မွ ထုတ္လုပ္သည္။</p>
+    </div>
+    <div class="col-md-4"></div>
+</div>
+
+<style>
+    h2{
+
+      font-size: 12px;
+    }
+
+
+    #reserva_nav{
+      display: none;
+    }
+
+    #error_explanation{
+      color: white;
+      padding-top: 20px;
+    }
+</style>
+

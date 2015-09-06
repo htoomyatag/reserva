@@ -1,0 +1,196 @@
+
+  <div class="col-md-12">
+
+        <div class="alert alert-success">
+          မဂၤလာပါခင္ဗ်ာ။ယခုသင္ ေရာက္ရွိေနေသာေနရာသည္ Admin Panel ျဖစ္ျပီး ယခုေနရာတြင္သင့္ဆိုင္အတြက္လိုအပ္ေသာစားပြဲခုံ အေရအတြက္အား မိမိ စိတ္ၾကိဳက္ အတိုးအေလ်ာ့ ျပဳလုပ္ႏိုင္ပါသည္။
+        </div>
+     
+  </div>
+
+  <div class="col-md-12">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <button type="button" class="btn btn-success btn-lg" onClick="window.location.reload()">ျပင္ဆင္မႈျပီးစီးသည္</button>
+            <a href="/manage_reservation" class="btn btn-info btn-lg active" role="button">Seat Plan သို႕သြားမည္</a>
+        </div>
+    </div>
+  </div>
+
+<div class="col-md-2">
+  <ul class="nav nav-pills nav-stacked" style="max-width: 300px;">
+     <li ><a style="height: 90px;" href="#">
+            <%= image_tag "1-Table _hma.png" %> 
+            <span style="position:relative;bottom:70px;left:70px;">    
+              <%= form_for(@seat, :remote => true) do |f| %>
+                <%= f.text_field :seat_type, :value => "1", :style => "display:none;" %>
+                <%= f.text_field :user_id, :value => current_user.id, :style => "display:none;" %>
+                <%= f.submit "Add", :id => "add_seat1", :type => :image, :src => "/assets/add-icon.png" %>
+              <% end %> 
+            </span>
+      </a></li>
+
+      <li ><a style="height: 90px;" href="#">
+            <%= image_tag "2-Table_hma.png" %> 
+            <span style="position:relative;bottom:70px;left:70px;">    
+              <%= form_for(@seat, :remote => true) do |f| %>
+                <%= f.text_field :seat_type, :value => "2", :style => "display:none;" %>
+                <%= f.text_field :user_id, :value => current_user.id, :style => "display:none;" %>
+                <%= f.submit "Add", :id => "add_seat2", :type => :image, :src => "/assets/add-icon.png" %>
+              <% end %> 
+            </span>
+      </a></li>
+
+      <li ><a style="height: 90px;" href="#">
+            <%= image_tag "4-Table_hma.png" %> 
+            <span style="position:relative;bottom:70px;left:70px;">    
+              <%= form_for(@seat, :remote => true) do |f| %>
+                <%= f.text_field :seat_type, :value => "4", :style => "display:none;" %>
+                <%= f.text_field :user_id, :value => current_user.id, :style => "display:none;" %>
+                <%= f.submit "Add", :id => "add_seat4", :type => :image, :src => "/assets/add-icon.png" %>
+              <% end %> 
+            </span>
+      </a></li>
+
+      <li ><a style="height: 90px;" href="#">
+            <%= image_tag "8-Table_hma.png" %> 
+            <span style="position:relative;bottom:70px;left:70px;">    
+              <%= form_for(@seat, :remote => true) do |f| %>
+                <%= f.text_field :seat_type, :value => "8", :style => "display:none;" %>
+                <%= f.text_field :user_id, :value => current_user.id, :style => "display:none;" %>
+                <%= f.submit "Add", :id => "add_seat8", :type => :image, :src => "/assets/add-icon.png" %>
+              <% end %> 
+            </span>
+      </a></li>
+  </ul>
+</div>
+
+ <div class="col-md-8">
+   
+    <ul class="list-group" >
+      <li class="list-group-item" id="list_of_seat1" style="height: 90px;">
+        <% @seats_1.each do |seat_1| %>
+         
+          <span id="hide_seat<%= seat_1.id.to_s %>">
+            <%= link_to image_tag("1-Table _hma.png")  %>
+          </span> 
+          
+            <%= link_to image_tag("delete-2x.png"), seat_1,:remote => true,  :id => "del_seat"+seat_1.id.to_s, method: :delete  %>
+
+            <script type="text/javascript">
+                  $("#del_seat<%= seat_1.id.to_s %>").click(function () {
+                        $(this).hide();
+                        $("#hide_seat<%= seat_1.id.to_s %>").hide();
+                    });
+
+
+          </script>
+          
+        <% end%>
+      </li>
+      <li class="list-group-item" id="list_of_seat2" style="height: 90px;">
+        <% @seats_2.each do |seat_2| %>
+         <span id="hide_seat<%= seat_2.id.to_s %>">
+          <%= link_to image_tag("2-Table_hma.png")  %>
+        </span>
+          <%= link_to image_tag("delete-2x.png"), seat_2,:remote => true, :id => "del_seat"+seat_2.id.to_s, method: :delete  %>
+
+          <script type="text/javascript">
+                  $("#del_seat<%= seat_2.id.to_s %>").click(function () {
+                        $(this).hide();
+                        $("#hide_seat<%= seat_2.id.to_s %>").hide();
+                    });
+
+
+          </script>
+
+        <% end%>
+      </li>
+      <li class="list-group-item" id="list_of_seat4" style="height: 90px;"> 
+        <% @seats_4.each do |seat_4| %>
+           <span id="hide_seat<%= seat_4.id.to_s %>">
+           <%= link_to image_tag("4-Table_hma.png") %>
+           </span>
+          <%= link_to image_tag("delete-2x.png"), seat_4,:remote => true, :id => "del_seat"+seat_4.id.to_s, method: :delete  %>
+
+            <script type="text/javascript">
+                  $("#del_seat<%= seat_4.id.to_s %>").click(function () {
+                        $(this).hide();
+                        $("#hide_seat<%= seat_4.id.to_s %>").hide();
+                    });
+
+
+          </script>
+        <% end%>
+      </li>
+      <li class="list-group-item" id="list_of_seat8" style="height: 90px;">
+        <% @seats_8.each do |seat_8| %>
+          <span id="hide_seat<%= seat_8.id.to_s %>"><%= link_to image_tag("8-Table_hma.png")  %></span>
+          <%= link_to image_tag("delete-2x.png"), seat_8,:remote => true, :id => "del_seat"+seat_8.id.to_s, method: :delete  %>
+
+          <script type="text/javascript">
+                  $("#del_seat<%= seat_8.id.to_s %>").click(function () {
+                        $(this).hide();
+                        $("#hide_seat<%= seat_8.id.to_s %>").hide();
+                    });
+
+
+          </script>
+        <% end%>
+      </li>
+    </ul>
+
+ </div>
+
+
+ <div class="col-md-2">
+     <div class="panel panel-default">
+      <div class="panel-body">
+        <h4 style="text-align:center;"><%= current_user.shop_name %></h4>
+      </div>
+    </div>
+ 
+    <address>
+      <strong><%= current_user.shop_name %></strong><br>
+      <%= current_user.shop_address %><br>
+    </address>
+
+    <address>
+      <strong><%= current_user.user_name %></strong><br>
+      <a href="mailto:#"><%= current_user.email %></a>
+    </address>
+ </div>
+
+
+
+
+ <script>
+
+
+
+
+$("#add_seat1").click(function(){
+  $('#list_of_seat1').append("<img id='add_seat' alt='1-Table' src='/assets/1-Table _hma.png'><img alt='del-Table' id='del_seat' src='/assets/delete-2x.png'>");
+});
+
+$("#add_seat2").click(function(){
+  $('#list_of_seat2').append("<img alt='2-Table' src='/assets/2-Table_hma.png'><img alt='del-Table' id='del_seat' src='/assets/delete-2x.png'>");
+});
+
+$("#add_seat4").click(function(){
+  $('#list_of_seat4').append("<img alt='4-Table' src='/assets/4-Table_hma.png'><img alt='del-Table' id='del_seat' src='/assets/delete-2x.png'>");
+});
+
+$("#add_seat8").click(function(){
+  $('#list_of_seat8').append("<img alt='8-Table' src='/assets/8-Table_hma.png'><img alt='del-Table' id='del_seat' src='/assets/delete-2x.png'>");
+});
+
+
+
+
+
+ </script>
+<style>
+  #del_seat{
+      border-radius: 50px;
+  }
+</style>

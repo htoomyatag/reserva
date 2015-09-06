@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Reserva</title>
+  <link rel="shortcut icon" href="<%= asset_path 'favicon.ico'%>">
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<nav class="navbar navbar-default" role="navigation" id="reserva_nav">
+  <!-- Brand and toggle get grouped for better mobile display -->
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="#"> <%= image_tag "logo1.png" %></a>
+  </div>
+
+  <!-- Collect the nav links, forms, and other content for toggling -->
+  <div class="collapse navbar-collapse" id="reserva_ul">
+    <ul class="nav navbar-nav navbar-right" >
+      <% if user_signed_in? %>
+          <li ><%= link_to 'Reservation စီမံခန္႕ခြဲရန္', manage_reservation_path, :id =>"reserva_link"  %></li>
+          <li ><%= link_to 'Offline Reservation စီမံခန္႕ခြဲရန္', new_order_path, :id =>"reserva_link" %></li>
+          <li ><%= link_to 'Table Management စားပြဲအေရအတြက္ စီမံခန္႕ခြဲရန္', create_seat_path, :id =>"reserva_link" %></li>
+          <li ><%= link_to 'Reservation List', hnt_reserves_path, :id =>"reserva_link" %></li>
+          <li > <%= link_to '[click to logout] ထြက္မည္ ', destroy_user_session_path, :method => :delete, :id =>"reserva_link" %>
+          </li>
+      <% else %>
+          <li><%= link_to 'Sign in', new_user_session_path %></li>
+      <% end %>
+    </ul>
+   </div>
+
+</nav>
+
+<%= yield %>
+
+</body>
+</html>

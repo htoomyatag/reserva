@@ -1,0 +1,135 @@
+ body{
+ 	overflow-y: scroll;
+	overflow-x: hidden;
+ }
+
+  #home_bg{
+  	background: url(/assets/bg.jpg) no-repeat 0px 0px;
+  	background-size: 100% 100%;
+  	min-height: 570px;
+  	position: relative;
+  }
+
+
+#sign_up_page{
+
+   background: #2a6962;
+   position: relative;
+   background-size: 100% 100%;
+   min-height: 800px;
+}
+
+
+#sign_up_reserva{
+
+text-align:right;
+color:black;
+weight:100px; 
+opacity:1;
+filter:alpha(opacity=60);
+padding-right:5px;
+
+}
+
+
+#text_box{
+	height: 70px;
+	margin-top: 10px;
+	font-size: 20px;
+}
+
+
+#text_box_signup{
+	height: 50px;
+	margin-top: 5px;
+	font-size: 20px;
+  border-radius: 0px;
+}
+
+#reserve_phone{
+  font-size: 20px;
+  left: 40px;
+  position: relative;
+  top: 10px;
+}
+
+
+#text_box_order{
+  font-size: 18px;
+  padding-left: 10px;
+  position: relative;
+  top: 10px;
+  height: 40px;
+}
+
+#btn_res{
+  height: 40px;
+  position: relative;
+  top: 10px;
+  background-color: #2a6962;
+  color: white;
+  font-size: 20px;
+}
+
+
+.th_order{
+  background-color: #2a6962;
+  color: white;
+  font-size: 15px;
+  text-align: center;
+  padding-bottom: 10px;
+  
+}
+
+#phone {
+  height: 60px;
+  position: relative;
+  left: 40px;
+  top: 5px;
+}
+
+.pagination a{ 
+
+ background-position:left top;
+ background-color: #2a6962; 
+ color: white;
+ padding: 10px;
+
+}
+
+
+#online_res{
+
+  padding: 20px;
+  font-size: 20px;
+  color: white;
+  background-color: #2a6962; 
+  
+
+}
+
+#res_body{
+  padding-top: 20px;
+}
+
+.all_seattype{
+  padding: 10px;
+}
+
+
+#reserva_nav{
+  background-color: #2a6962;
+}
+
+#reserva_ul{
+  position: relative;
+  top: 10px;
+  color: white;
+}
+
+
+#reserva_link{
+
+  color: white;
+
+}

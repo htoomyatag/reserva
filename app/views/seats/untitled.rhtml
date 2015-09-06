@@ -1,0 +1,20 @@
+                            <% if mng_seat.status == "yes_reserve"  %>
+
+                                <%= link_to( image_tag("1-Table-Purple.png"), sit_path(mng_seat), :method => :put, :remote => true, :class=>"all_seattype", :id => "purple"+mng_seat.id.to_s) %>
+
+                            <% elsif mng_seat.status == "sit"  %>
+                                <%= link_to( image_tag("1-Table-Red.png"), no_reserve_path(mng_seat), :method => :put, :class=>"all_seattype") %>
+                            <% elsif mng_seat.status == "no_reserve" or ""  %>
+                                <%= link_to( image_tag("1-Table.png"), yes_reserve_path(mng_seat), :method => :put, :class=>"all_seattype") %>
+                            <% else  %>
+                            <% end  %>
+
+
+
+
+                           <%= image_tag "1-Table-Purple.png", :class => "all_seattype", :id => "purple"+mng_seat.id.to_s  %>
+                           <%= image_tag "1-Table-Red.png", :class => "all_seattype", :id => "red"+mng_seat.id.to_s, :style => "display:none;"   %>
+                           <%= image_tag "1-Table.png", :class => "all_seattype", :id => "green"+mng_seat.id.to_s, :style => "display:none;"   %>
+
+
+

@@ -1,0 +1,244 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Reserva | a standard reservation app</title>
+		 <%= stylesheet_link_tag 'homestyle.css' %>
+		 <link rel="shortcut icon" href="<%= asset_path 'favicon.ico'%>">
+	
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="shortcut icon" type="image/x-icon" href="fav-icon.ico" />
+		<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+		</script>
+		<!----webfonts---->
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+		<!----//webfonts---->
+		<!----include-js---->
+		<%= javascript_include_tag 'jquery.js' %>
+		<!----//include-js---->
+		<%= javascript_include_tag 'move-top.js' %>
+		<%= javascript_include_tag 'easing.js' %>
+		<script type="text/javascript">
+			jQuery(document).ready(function($) {
+				$(".scroll").click(function(event){		
+					event.preventDefault();
+					$('html,body').animate({scrollTop:$(this.hash).offset().top},1200);
+				});
+			});
+		</script>
+	</head>
+	<body>
+	<!---- start-wrap---->
+		<!---- start-header---->
+		<div class="header">
+				<div class="wrap">
+			<!---- start-logo---->
+				<div class="logo">
+					<a href="#">
+						 <%= image_tag "home_logo.png", :style => "border-radius: 5px;" %>
+					</a>
+				</div>
+			<!---- //End-logo---->
+			<!----start-top-contact-info---->
+			<div class="top-contact-info">
+				<!----start-top-social-icons---->
+				
+				
+				<div class="top-contact-info-box">
+					<span style="font-size:18px;">contact</span><i></i><label style="position:relative;bottom:1px;font-size:18px;">(+959) 795545748</label><br/>
+					<label style="position:relative;bottom:1px;font-size:18px;">(+959) 30210743</label>
+					<br/>
+					
+				</div>
+				<div class="clear"> </div>
+			</div>
+			<div class="clear"> </div>
+			
+		</div>
+	
+	</div>
+
+	<div class="slide-banner">
+		<div class="wrap">
+			<div class="slide-banner-left">
+				<div class="slide-banner-left-divice">
+					
+				</div>
+				<script>
+					$(function() {
+					
+						$("#slideshow > div:gt(0)").hide();
+				
+						setInterval(function() { 
+						  $('#slideshow > div:first')
+						    .fadeOut(1000)
+						    .next()
+						    .fadeIn(300)
+						    .end()
+						    .appendTo('#slideshow');
+						},  3000);
+						
+					});
+				</script>
+				<!----//End-script---->
+				<div id="slideshow">
+					   <div>
+						 <%= image_tag "slide1.png" %>
+					   </div>
+					   <div>
+					     <%= image_tag "slide2.jpg" %>
+					   </div>
+					   <div>
+					     <%= image_tag "slide3.jpg" %>
+					   </div>
+				</div>
+			</div>
+			<div class="slide-banner-right"><br/><br/>
+				<h1 style="margin-left:20px;">Better Reservation system 
+				<br/>to give your customers<br> the best services</h1>
+				<p style="margin-left:20px;margin-bottom:190px;">use reserva to receive your customer's table reservation
+				<br/>fastly and exactly.
+				</p>
+				<ul>
+					<li><a class="slide-bbtn" href="/users/sign_up">
+						9900 Kyats per month
+					</a></li>
+					<li><a class="slide-sbtn" href="/users/sign_up">Test Use</a></li>
+				</ul>
+			</div>
+			<div class="clear"> </div>
+		</div>
+	</div>
+	<!----//End-slide-banner---->
+	<!----start-top-grids---->
+	<div class="top-grids">
+		<div class="wrap">
+			<h2><span>Check our</span> features</h2>
+			<div class="top-grid">
+				<div class="top-grid-head">
+					<div class="top-grid-head-left">
+						<span> </span>
+					</div>
+					<div class="top-grid-head-right">
+						<h3 style="font-size:20px;"><span>Receive Online/Offline</span>table reservation  </h3>
+					</div>
+					<div class="clear"> </div>
+				</div>
+				<div class="top-grid-info">
+					<p>
+					Can not only receive reservations sent from mobile application but also from phone calls.</p>
+				</div>
+			</div>
+			<div class="top-grid">
+				<div class="top-grid-head">
+					<div class="top-grid-head-left icon1">
+						<span> </span>
+					</div>
+					<div class="top-grid-head-right">
+						<h3 style="font-size:20px;"><span>
+							Works for restaurants
+						</span>of all shapes and sizes</h3>
+					</div>
+					<div class="clear"> </div>
+				</div>
+				<div class="top-grid-info">
+					<p>Can manage your number of tables, seats and their layout</p>
+				</div>
+			</div>
+			<div class="top-grid top-grid1">
+				<div class="top-grid-head">
+					<div class="top-grid-head-left icon2">
+						<span> </span>
+					</div>
+					<div class="top-grid-head-right">
+						<h3 style="font-size:20px;"><span>Affordable price and</span>easy to use</h3>
+					</div>
+					<div class="clear"> </div>
+				</div>
+				<div class="top-grid-info">
+					<p>Only 9900 Kyats per month. No additional fees.
+					Can train your staff in minutes.</p>
+				</div>
+			</div>
+			<div class="clear"> </div>
+		</div>
+		<br/>
+		<div class="wrap"><br/>
+			<h2><span>Check our</span> partners</h2>
+			<div class="top-grid">
+				<%= image_tag "shwekaung.jpg" %>
+			</div>
+			<div class="top-grid">
+				<%= image_tag "out_customer.png" %>
+			</div>
+			<div class="top-grid top-grid1">
+				<%= image_tag "out_customer.png" %>
+			</div>
+			
+			<div class="top-grid">
+				<%= image_tag "out_customer.png" %>
+			</div>
+			<div class="top-grid">
+				<%= image_tag "out_customer.png" %>
+			</div>
+			<div class="top-grid top-grid1">
+				<%= image_tag "out_customer.png" %>
+			</div>
+			<div class="clear"> </div>
+		</div>
+	</div>
+	<!----//End-top-grids---->
+	<!---carousel---->
+
+		 <%= stylesheet_link_tag 'owl.carousel.css' %>
+		 <%= javascript_include_tag 'owl.carousel.js' %>
+	     <script>
+		    $(document).ready(function() {
+		      $("#owl-demo").owlCarousel({
+		        items : 4,
+		        lazyLoad : true,
+		        autoPlay : true,
+		        pagination :false
+		      });
+		
+		    });
+	    </script>
+
+
+
+	<!----//End-price-tables----->
+	<!----start-bottom-grids---->
+	
+	<div class="footer">
+		<div class="wrap">
+			<div class="footer-left">
+				<p>Copyright &#169; 2015 <a href="http://www.reservatech.info/">Reserva.</a>  <a href="http://www.hnttechs.com//"> Produced by </a>H&Ttechs</p>
+			</div>
+			<div class="footer-right">
+				<ul>
+				
+				</ul>
+				<script type="text/javascript">
+						$(document).ready(function() {
+							/*
+							var defaults = {
+					  			containerID: 'toTop', // fading element id
+								containerHoverID: 'toTopHover', // fading element hover id
+								scrollSpeed: 1200,
+								easingType: 'linear' 
+					 		};
+							*/
+							
+							$().UItoTop({ easingType: 'easeOutQuart' });
+							
+						});
+					</script>
+			    <a href="#" id="toTop" style="display: block;"><span id="toTopHover" style="opacity: 1;"></span></a>
+			</div>
+			<div class="clear"> </div>
+		</div>
+	</div>
+	<!----//End-footer---->
+	<!---- //End-wrap---->
+	</body>
+</html>
+
